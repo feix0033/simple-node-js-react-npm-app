@@ -12,8 +12,9 @@ pipeline {
         stage('Build') {
             steps {
                 sh'''
-                npm set registry http://10.100.20.11:4873/
-                yarn config set registry http://10.100.20.11:4873/
+                npm set registry http://localhost:4873/
+                npm install lodash --registry http://localhost:4873
+                yarn config set registry http://localhost:4873/
                 '''
                 sh 'npm get registry'
                 sh 'npm install'
